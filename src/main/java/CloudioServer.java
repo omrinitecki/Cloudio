@@ -2,16 +2,22 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server
+public class CloudioServer implemengs Runnable
 {
 
     private static ServerSocket serverSocket;
+	private int port;
+	
+	public CloudioServer(int port)
+	{
+		this.port = port;
+	}
 
-    public static void main(String[] args) throws IOException
+    public void run()
     {
         try
         {
-            serverSocket = new ServerSocket(4444);
+            serverSocket = new ServerSocket(this.port);
             System.out.println("Server started.");
         }
 
